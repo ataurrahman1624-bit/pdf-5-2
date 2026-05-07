@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>WanderPlan | Interactive Travel Planner</title>
+  <!-- Google Fonts & Simple Icons (Font Awesome 6 Free CDN) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="planner-container">
+  <div class="planner-header">
+    <h1><i class="fas fa-map-marked-alt"></i> WanderPlan · Interactive Travel Planner</h1>
+    <p>Select destinations, add activities, pick your dates — real-time budget & smart itinerary ✨</p>
+  </div>
+
+  <div class="planner-main">
+    <!-- LEFT PANEL: selections -->
+    <div class="left-panel">
+      <!-- Destinations section (multiple select) -->
+      <div class="section-card">
+        <h2><i class="fas fa-globe-americas"></i> Choose destinations</h2>
+        <div class="section-desc">Select multiple dream places — each destination cost adds to budget.</div>
+        <div id="destinationsContainer" class="destinations-grid"></div>
+      </div>
+
+      <!-- Date selection section -->
+      <div class="section-card">
+        <h2><i class="fas fa-calendar-alt"></i> Trip dates</h2>
+        <div class="section-desc">Set start and end date for your adventure.</div>
+        <div class="date-row">
+          <div class="date-field">
+            <label><i class="fas fa-play"></i> Start date</label>
+            <input type="date" id="startDate" value="">
+          </div>
+          <div class="date-field">
+            <label><i class="fas fa-stop"></i> End date</label>
+            <input type="date" id="endDate" value="">
+          </div>
+        </div>
+        <div id="dateValidationMsg" class="validation-msg"></div>
+      </div>
+
+      <!-- Activities (available) -->
+      <div class="section-card">
+        <h2><i class="fas fa-hiking"></i> Activities to add</h2>
+        <div class="section-desc">Click on ➕ to add an experience to your itinerary.</div>
+        <div id="activitiesList" class="activities-list"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL: dynamic summary -->
+    <div class="right-panel">
+      <div class="summary-card">
+        <h3><i class="fas fa-check-circle"></i> Selected destinations</h3>
+        <div id="selectedDestinationsArea" class="selected-destinations-area">
+          <div class="empty-message">✨ No destinations selected yet</div>
+        </div>
+        <h3><i class="fas fa-suitcase"></i> Your itinerary</h3>
+        <div id="itineraryListContainer" class="itinerary-list">
+          <div class="empty-message">➕ Add activities from the left panel</div>
+        </div>
+        <div class="budget-box">
+          <div class="budget-label">💰 Estimated budget (USD)</div>
+          <div id="totalBudget" class="budget-amount">$0</div>
+          <div class="refresh-hint"><i class="fas fa-sync-alt"></i> Updates in real-time</div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <h3><i class="fas fa-info-circle"></i> How it works</h3>
+        <ul style="list-style: none; font-size: 0.85rem; line-height: 1.6;">
+          <li>✓ <strong>Multiple destinations</strong> — check/uncheck any destination</li>
+          <li>✓ <strong>Activity manager</strong> — add/remove activities from your plan</li>
+          <li>✓ <strong>Smart budget</strong> = destinations cost + chosen activities cost</li>
+          <li>✓ <strong>Date validation</strong> ensures trip logic</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <i class="fas fa-plane-departure"></i> Interactive Travel Planner — real-time budget, dynamic itinerary
+  </footer>
+</div>
+
+<script src="./app.js"></script>
+</body>
+</html>
